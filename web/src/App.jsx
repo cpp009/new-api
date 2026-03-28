@@ -43,7 +43,6 @@ import Pricing from './pages/Pricing';
 import Task from './pages/Task';
 import ModelPage from './pages/Model';
 import ModelDeploymentPage from './pages/ModelDeployment';
-import Playground from './pages/Playground';
 import Subscription from './pages/Subscription';
 import OAuth2Callback from './components/auth/OAuth2Callback';
 import PersonalSetting from './components/settings/PersonalSetting';
@@ -53,6 +52,9 @@ import SetupCheck from './components/layout/SetupCheck';
 const Home = lazy(() => import('./pages/Home'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const About = lazy(() => import('./pages/About'));
+const GuideVscodeClaudeCode = lazy(() => import('./pages/GuideVscodeClaudeCode'));
+const GuideWindows11ClaudeCode = lazy(() => import('./pages/GuideWindows11ClaudeCode'));
+const GuideMacosClaudeCode = lazy(() => import('./pages/GuideMacosClaudeCode'));
 const UserAgreement = lazy(() => import('./pages/UserAgreement'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 
@@ -144,14 +146,6 @@ function App() {
           element={
             <PrivateRoute>
               <Token />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path='/console/playground'
-          element={
-            <PrivateRoute>
-              <Playground />
             </PrivateRoute>
           }
         />
@@ -339,6 +333,30 @@ function App() {
           element={
             <Suspense fallback={<Loading></Loading>} key={location.pathname}>
               <About />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/guide/vscode-claude-code'
+          element={
+            <Suspense fallback={<Loading></Loading>} key={location.pathname}>
+              <GuideVscodeClaudeCode />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/guide/windows11-claude-code'
+          element={
+            <Suspense fallback={<Loading></Loading>} key={location.pathname}>
+              <GuideWindows11ClaudeCode />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/guide/macos-claude-code'
+          element={
+            <Suspense fallback={<Loading></Loading>} key={location.pathname}>
+              <GuideMacosClaudeCode />
             </Suspense>
           }
         />
